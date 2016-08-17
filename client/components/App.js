@@ -32,9 +32,7 @@ export default class App extends React.Component {
 
             const updatedTask = rsp.data;
             updatedTask.due = moment(rsp.data.due).utc().format('YYYY-MM-DD');
-            const tempTasks = this.state.tasks;
-            tempTasks.push(updatedTask);
-            this.setState({ tasks: tempTasks });
+            this.setState({ tasks: [...this.state.tasks, updatedTask] });
           });
   }
 
